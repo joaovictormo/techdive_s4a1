@@ -1,91 +1,133 @@
 package primeirospassos;
 
-import java.util.Locale;
+
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class OlaMundao {
 
-
-
     public static void main(String[] args) {
 
-        long numeroBastanteLongo = 214748369;
-        long outroNumeroBastanteLongo = 2147483699l;
-        Long maisUmNumeroBastanteLongo = 21474836l;
+        char teste = 64;
+        System.out.println(teste);
 
-        Float numeroDecimal = 3.8f;
-        float outroNumeroDecimal = (float) 3.8;
+        double primeiroNumero = 15;
+        double resultado = 23542345 % 2;
 
-        int altura = (int) 1.75;
-        double idade = 30;
-        int idadeInteger = (int) idade;
-        double alturaDecimal = 1.750;
+        System.out.println(resultado);
 
-        System.out.println("Minha altura é: " + alturaDecimal);
+        double media = (8+7+8)/3;
+        double mediaDecimal = (8+7+8)/3.0;
+
+        System.out.println(media);
+        System.out.println(mediaDecimal);
+
+        int idade = 30;
+
+        // idade += 1;
+        idade++;
+
+        System.out.println(--idade);
         System.out.println(idade);
-        System.out.println(idadeInteger);
-        char primeiraLetraDoNome = 'J';
-        String nome = "João Victor";
-        String sobrenome = "Mendes de Oliveira";
-        String nomeCompleto = nome + " " + sobrenome;
 
-        System.out.printf("A altura de %s formatada é: %.2f%n", nomeCompleto, alturaDecimal);
-        System.out.format("A altura de %s formatada é: %.2f%n", nomeCompleto, alturaDecimal);
+        double resultPow = Math.pow(5, 2);
+        System.out.println(resultPow);
 
-        System.out.print(primeiraLetraDoNome);
-        System.out.printf("%n%s%n%s%n", nome, sobrenome);
+        double resultSqrt = Math.sqrt(9);
+        System.out.println(resultSqrt);
 
-        Scanner entrada = new Scanner(System.in);
+        double resultCbrt = Math.cbrt(27);
+        System.out.println(resultCbrt);
 
-        /*System.out.print("Digite a cidade onde você mora: ");
-        String cidade = entrada.nextLine();
-        System.out.print("Digite o seu peso: ");
-        double peso = Double.parseDouble(entrada.nextLine());
-        System.out.print("Digite o seu ano de nascimento: ");
-        int anoDeNascimento = Integer.parseInt(entrada.nextLine());
-        System.out.print("Digite um número inteiro muito grande: ");
-        long numeroMuitoGrande = Long.parseLong(entrada.nextLine());
+        double resultAbs = Math.abs(-10);
+        System.out.println(resultAbs);
 
-        System.out.printf("A sua cidade é: %s%n", cidade);
-        System.out.printf("Seu peso é: %.3f%n", peso);
-        System.out.printf("Seu ano de nascimento é: %d%n", anoDeNascimento);
-        System.out.printf("Número muito grande é: %d%n", numeroMuitoGrande);*/
+        double resultFloor = Math.floor(29.9);
+        System.out.println(resultFloor);
 
+        double resultCeil = Math.ceil(29.1);
+        System.out.println(resultCeil);
 
-        int idadeDoUsuario = 30;
-        String idadeStr = String.valueOf(idadeDoUsuario);
-        String idadeStr2 = Integer.toString(idadeDoUsuario);
-        System.out.println(idadeStr);
-        System.out.println(idadeStr2);
+        double resultRound = Math.round(29.9);
+        System.out.println(resultRound);
 
-        String txtMinusculo = "MInUsCuLo";
+        System.out.println(Math.PI);
 
-        double dinheiroNaCarteira = Double.parseDouble("50");
-        System.out.println(dinheiroNaCarteira);
-        System.out.println("Cinco".length());
-        System.out.println("maiusculo".toUpperCase());
-        System.out.println(txtMinusculo.toLowerCase());
-        txtMinusculo = txtMinusculo.toLowerCase();
-        System.out.println(txtMinusculo);
-        System.out.println("    Espaços   Mais Espaços     ".trim());
+        System.out.println(Math.random());
 
-        boolean ehIgual = nome.equals("joão victor");
-        System.out.println(ehIgual);
-        ehIgual = nome.equalsIgnoreCase("joão victor");
-        System.out.println(ehIgual);
+        double rand = Math.random() * (100-10) + 10;
+        int randInt = (int) (Math.random() * (100-10) + 10);
+        System.out.println(rand);
+        System.out.println(randInt);
 
-        System.out.println(nome.charAt(0));
-        System.out.println(nome.indexOf('o'));
-        System.out.println(nome.lastIndexOf('o'));
-        System.out.println(nome.replace('o', 'u'));
-        nome = nome.replace('o', 'u');
-        System.out.println(nome);
-        System.out.println(nome.substring(1));
-        System.out.println(nome.substring(1, 4));
+        System.out.println(5>4);
+        System.out.println(5<=5);
+        System.out.println(10!=1);
+        System.out.println(3==13);
 
-        System.out.println("".isBlank());
-        System.out.println("".isEmpty());
-        System.out.println(" ".isBlank());
-        System.out.println(" ".isEmpty());
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Insira sua idade: ");
+        int idadeUsuario = Integer.parseInt(input.nextLine());
+
+        if (idadeUsuario < 0) {
+            System.out.println("Você precisa informar uma idade válida");
+        } else {
+            if (idadeUsuario >= 18) {
+                System.out.println("Você é maior de idade.");
+            }
+
+            System.out.printf("Você tem %d anos de idade.%n", idadeUsuario);
+        }
+
+        String texto =  new String(" ");
+
+        if (texto != null && !texto.isBlank()) {
+            System.out.printf("texto está preenchido: %s", texto);
+        }
+
+        int mes = LocalDate.now().getMonthValue();
+        String resultString;
+
+        switch (mes) {
+            case 1:
+                resultString = "Janeiro";
+                break;
+            case 2:
+                resultString = "Fevereiro";
+                break;
+            case 3:
+                resultString = "Março";
+                break;
+            case 4, 5, 6:
+                resultString = "Segundo trimestre";
+                break;
+            case 7, 8, 9, 10, 11, 12:
+                resultString = "Segundo semestre";
+                break;
+            default:
+                resultString = "Não foi possível identificar o mês.";
+        }
+
+        System.out.println(mes);
+        System.out.println(resultString);
+
+        double mediaFinal = 6.9;
+
+        String status = mediaFinal >= 7.0 ? "Aprovado" : "Reprovado";
+
+        System.out.println(status);
+
+        int novaIdade = 60;
+
+        String resultadoNovaIdade = novaIdade >= 18 ? novaIdade >= 60 ? "idoso" : "adulto" : novaIdade >= 13 ? "adolescente" : "criança";
+
+        System.out.println(resultadoNovaIdade);
+
+        int num = 2423423;
+
+        Boolean ehPar = num % 2 == 0;
+
+        System.out.println(ehPar);
     }
 }
