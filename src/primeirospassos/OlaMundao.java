@@ -1,133 +1,139 @@
 package primeirospassos;
 
 
-import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Random;
 import java.util.Scanner;
 
 public class OlaMundao {
 
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
-        char teste = 64;
-        System.out.println(teste);
+        // int rand = (int) (Math.random() * (11-5) + 5);
 
-        double primeiroNumero = 15;
-        double resultado = 23542345 % 2;
+        Random random = new Random();
+        int rand = random.nextInt(6) + 5;
 
-        System.out.println(resultado);
+        System.out.print("Adivine um número de 5 a 10: ");
+        int adivinhacaoDoUsuario = Integer.parseInt(scanner.nextLine());
 
-        double media = (8+7+8)/3;
-        double mediaDecimal = (8+7+8)/3.0;
+        while (rand != adivinhacaoDoUsuario) {
+            System.out.println("Você errou!");
+            System.out.print("Adivinhe um número de 5 a 10: ");
+            adivinhacaoDoUsuario = Integer.parseInt(scanner.nextLine());
+        }
 
-        System.out.println(media);
-        System.out.println(mediaDecimal);
+        /*int adivinhacaoDoUsuario;
 
-        int idade = 30;
+        do {
+            System.out.print("Adivinhe um número de 5 a 10: ");
+            adivinhacaoDoUsuario = Integer.parseInt(scanner.nextLine());
+        } while (rand != adivinhacaoDoUsuario);
 
-        // idade += 1;
-        idade++;
+        System.out.println("Parabéns! Você acertou!");*/
 
-        System.out.println(--idade);
-        System.out.println(idade);
+        String primeiroNome = "João";
 
-        double resultPow = Math.pow(5, 2);
-        System.out.println(resultPow);
+        for (int i = 0; i < primeiroNome.length(); i++) {
+            System.out.println(primeiroNome.charAt(i));
+        }
 
-        double resultSqrt = Math.sqrt(9);
-        System.out.println(resultSqrt);
+        System.out.println("fora do for");
 
-        double resultCbrt = Math.cbrt(27);
-        System.out.println(resultCbrt);
+        int[] anosDeCopa = {2022, 2018, 2014, 2010, 2006, 2002, 1998};
+        String[] carros = new String[5];
 
-        double resultAbs = Math.abs(-10);
-        System.out.println(resultAbs);
+        carros[0] = "uno";
+        carros[1] = "sandero";
+        carros[2] = "c3";
+        carros[3] = "brasilia";
+        carros[4] = "147";
 
-        double resultFloor = Math.floor(29.9);
-        System.out.println(resultFloor);
+        System.out.println("tamanho do array anosDeCopa: " + anosDeCopa.length);
+        System.out.println("tamanho do array carros: " + carros.length);
 
-        double resultCeil = Math.ceil(29.1);
-        System.out.println(resultCeil);
+        System.out.println("Primeiro item do array anosDeCopa: " + anosDeCopa[0]);
+        System.out.println("Último item do array anosDeCopa: " + anosDeCopa[anosDeCopa.length - 1]);
 
-        double resultRound = Math.round(29.9);
-        System.out.println(resultRound);
-
-        System.out.println(Math.PI);
-
-        System.out.println(Math.random());
-
-        double rand = Math.random() * (100-10) + 10;
-        int randInt = (int) (Math.random() * (100-10) + 10);
-        System.out.println(rand);
-        System.out.println(randInt);
-
-        System.out.println(5>4);
-        System.out.println(5<=5);
-        System.out.println(10!=1);
-        System.out.println(3==13);
-
-        Scanner input = new Scanner(System.in);
-
-        System.out.print("Insira sua idade: ");
-        int idadeUsuario = Integer.parseInt(input.nextLine());
-
-        if (idadeUsuario < 0) {
-            System.out.println("Você precisa informar uma idade válida");
-        } else {
-            if (idadeUsuario >= 18) {
-                System.out.println("Você é maior de idade.");
+        for (int i = 0; i < anosDeCopa.length; i++) {
+            if (i == 0) {
+                System.out.print(anosDeCopa[i]);
+            } else {
+                System.out.print(", " + anosDeCopa[i]);
             }
+        }
+        System.out.println("");
 
-            System.out.printf("Você tem %d anos de idade.%n", idadeUsuario);
+        Arrays.sort(anosDeCopa);
+
+        for (int ano: anosDeCopa) {
+            System.out.println(ano);
         }
 
-        String texto =  new String(" ");
+        Arrays.sort(carros);
 
-        if (texto != null && !texto.isBlank()) {
-            System.out.printf("texto está preenchido: %s", texto);
+        for (String carro: carros) {
+            System.out.println(carro);
         }
 
-        int mes = LocalDate.now().getMonthValue();
-        String resultString;
+        int index = Arrays.binarySearch(anosDeCopa, 2022);
 
-        switch (mes) {
-            case 1:
-                resultString = "Janeiro";
-                break;
-            case 2:
-                resultString = "Fevereiro";
-                break;
-            case 3:
-                resultString = "Março";
-                break;
-            case 4, 5, 6:
-                resultString = "Segundo trimestre";
-                break;
-            case 7, 8, 9, 10, 11, 12:
-                resultString = "Segundo semestre";
-                break;
-            default:
-                resultString = "Não foi possível identificar o mês.";
+        System.out.println(index);
+
+        int indexCarros = Arrays.binarySearch(carros, "c3");
+
+        System.out.println(indexCarros);
+
+        Arrays.fill(carros, "teste");
+
+        for (String carro: carros) {
+            System.out.println(carro);
         }
 
-        System.out.println(mes);
-        System.out.println(resultString);
+        ArrayList<String> nomes = new ArrayList<>();
 
-        double mediaFinal = 6.9;
+        nomes.add("José");
+        nomes.add("Maria");
+        nomes.add("Ana");
 
-        String status = mediaFinal >= 7.0 ? "Aprovado" : "Reprovado";
+        System.out.println(nomes.contains("José"));
 
-        System.out.println(status);
+        System.out.print("Tamanho da lista de nomes: " + nomes.size() + "\n");
 
-        int novaIdade = 60;
+        nomes.add("Pedro");
 
-        String resultadoNovaIdade = novaIdade >= 18 ? novaIdade >= 60 ? "idoso" : "adulto" : novaIdade >= 13 ? "adolescente" : "criança";
+        System.out.print("Tamanho da lista de nomes: " + nomes.size() + "\n");
 
-        System.out.println(resultadoNovaIdade);
+        nomes.remove(0);
+        // nomes.remove("Maria");
 
-        int num = 2423423;
+        System.out.println(nomes.contains("José"));
 
-        Boolean ehPar = num % 2 == 0;
+        for (String nome : nomes) {
+            System.out.println(nome);
+        }
 
-        System.out.println(ehPar);
+        Collections.sort(nomes);
+
+        for (String nome: nomes) {
+            System.out.println(nome);
+        }
+
+        int indexArrayList = Collections.binarySearch(nomes, "Pedro");
+
+        System.out.println(indexArrayList);
+
+        System.out.println(Collections.max(nomes));
+        System.out.println(Collections.min(nomes));
+
+        Collections.reverse(nomes);
+
+        for (String nome: nomes) {
+            System.out.println(nome);
+        }
+
     }
 }
